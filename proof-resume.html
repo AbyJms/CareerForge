@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Proof-Based Resume Builder | CareerForge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Inter, Segoe UI, sans-serif;
+      }
+
+      body {
+        background: radial-gradient(circle at top, #0f172a, #020617);
+        color: #e5e7eb;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 30px;
+        padding: 40px;
+      }
+
+      .builder {
+        background: #020617;
+        border: 1px solid #1e293b;
+        border-radius: 18px;
+        padding: 30px;
+      }
+
+      .section {
+        margin-bottom: 30px;
+      }
+
+      .section h3 {
+        color: #22d3ee;
+        margin-bottom: 10px;
+      }
+
+      label {
+        font-size: 13px;
+        color: #94a3b8;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        background: #020617;
+        color: #e5e7eb;
+        border: 1px solid #1e293b;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 12px;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      button {
+        background: rgba(34, 211, 238, 0.15);
+        color: #22d3ee;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      /* PREVIEW */
+      .preview {
+        background: white;
+        color: #020617;
+        border-radius: 18px;
+        padding: 30px;
+      }
+
+      .resume {
+        font-size: 13px;
+      }
+
+      .resume-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .resume-header img {
+        width: 90px;
+        height: 90px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      .resume h1 {
+        font-size: 24px;
+      }
+
+      .resume-section {
+        margin-top: 20px;
+      }
+
+      .resume-section h4 {
+        border-bottom: 1px solid #e5e7eb;
+        margin-bottom: 6px;
+      }
+
+      .resume ul {
+        padding-left: 18px;
+      }
+
+      .resume li {
+        margin-bottom: 4px;
+      }
+
+      .editable {
+        outline: none;
+      }
+
+      .top-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .download-btn {
+        background: #22d3ee;
+        color: #020617;
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 900px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- BUILDER -->
+      <div class="builder">
+        <h2>Proof-Based Resume Builder</h2>
+
+        <div class="section">
+          <h3>Profile</h3>
+          <input
+            placeholder="Full Name"
+            oninput="nameOut.textContent=this.value"
+          />
+          <input
+            placeholder="Email"
+            oninput="emailOut.textContent=this.value"
+          />
+          <input
+            placeholder="LinkedIn / GitHub"
+            oninput="linksOut.textContent=this.value"
+          />
+          <input type="file" accept="image/*" onchange="loadImage(event)" />
+        </div>
+
+        <div class="section">
+          <h3>Professional Summary</h3>
+          <textarea
+            placeholder="Who are you professionally?"
+            oninput="summaryOut.textContent=this.value"
+          ></textarea>
+        </div>
+
+        <div class="section">
+          <h3>Skills</h3>
+          <input id="skillInput" placeholder="e.g. JavaScript" />
+          <button onclick="addSkill()">+ Add Skill</button>
+        </div>
+
+        <div class="section">
+          <h3>Experience</h3>
+          <input id="expTitle" placeholder="Role / Company" />
+          <textarea
+            id="expDesc"
+            placeholder="What did you do? Impact?"
+          ></textarea>
+          <button onclick="addExperience()">+ Add Experience</button>
+        </div>
+
+        <div class="section">
+          <h3>Education</h3>
+          <input id="eduTitle" placeholder="Degree / Institution" />
+          <input id="eduYear" placeholder="Year" />
+          <button onclick="addEducation()">+ Add Education</button>
+        </div>
+
+        <div class="section">
+          <h3>Upload Existing Resume</h3>
+          <input type="file" />
+        </div>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="preview">
+        <div class="top-actions">
+          <strong>Resume Preview (Editable)</strong>
+          <button class="download-btn" onclick="window.print()">
+            Download PDF
+          </button>
+        </div>
+
+        <div class="resume" contenteditable="true">
+          <div class="resume-header">
+            <img id="profileImg" />
+            <div>
+              <h1 id="nameOut">Your Name</h1>
+              <p id="emailOut"></p>
+              <p id="linksOut"></p>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h4>Summary</h4>
+            <p id="summaryOut"></p>
+          </div>
+
+          <div class="resume-section">
+            <h4>Skills</h4>
+            <ul id="skillsOut"></ul>
+          </div>
+
+          <div class="resume-section">
+            <h4>Experience</h4>
+            <ul id="expOut"></ul>
+          </div>
+
+          <div class="resume-section">
+            <h4>Education</h4>
+            <ul id="eduOut"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function loadImage(e) {
+        const img = document.getElementById("profileImg");
+        img.src = URL.createObjectURL(e.target.files[0]);
+      }
+
+      function addSkill() {
+        if (!skillInput.value) return;
+        const li = document.createElement("li");
+        li.textContent = skillInput.value;
+        skillsOut.appendChild(li);
+        skillInput.value = "";
+      }
+
+      function addExperience() {
+        if (!expTitle.value) return;
+        const li = document.createElement("li");
+        li.textContent = expTitle.value + " – " + expDesc.value;
+        expOut.appendChild(li);
+        expTitle.value = "";
+        expDesc.value = "";
+      }
+
+      function addEducation() {
+        if (!eduTitle.value) return;
+        const li = document.createElement("li");
+        li.textContent = eduTitle.value + " (" + eduYear.value + ")";
+        eduOut.appendChild(li);
+        eduTitle.value = "";
+        eduYear.value = "";
+      }
+    </script>
+  </body>
+</html>
