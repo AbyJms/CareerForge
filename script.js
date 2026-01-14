@@ -1,3 +1,7 @@
-// Reserved for future interactivity
-// Navigation switching, progress tracking, localStorage, etc.
 console.log("CareerForge loaded");
+
+// Future logic:
+// - Journal entries
+// - Skill analytics
+// - Difficulty scoring
+// - Public profile rendering

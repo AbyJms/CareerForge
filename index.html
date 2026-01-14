@@ -2,84 +2,98 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CareerCraft</title>
+    <title>CareerForge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- NAVBAR -->
     <nav class="navbar">
       <div class="logo">
-        <div class="logo-circle">CC</div>
-        <span>Career<span class="accent">Craft</span></span>
+        <div class="logo-circle">CF</div>
+        <span>Career<span class="accent">Forge</span></span>
       </div>
+
       <div class="nav-links">
-        <button class="active">Resume Builder</button>
-        <button>Analyzer</button>
-        <button>Roadmap</button>
-        <button>Project Lab</button>
-        <button>LinkedIn</button>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="resume.html">Resume</a>
+        <a href="analyzer.html">Analyzer</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="journal.html">Journal</a>
+        <a href="projects.html">Projects</a>
+      </div>
+
+      <div class="auth-links">
+        <a href="login.html" class="login-btn">Login</a>
+        <a href="register.html" class="register-btn">Register</a>
       </div>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
-      <h1>Welcome to <span class="accent">CareerCraft</span></h1>
+      <h1>Welcome to <span class="accent">CareerForge</span></h1>
       <p>
-        Your all-in-one platform for career development. Build resumes, analyze
-        skills, plan your learning journey, and land your dream job.
+        A proof-based career platform to track skills, projects, learning,
+        journals, and real outcomes — built for recruiters to trust.
       </p>
     </section>
 
     <!-- FEATURE CARDS -->
     <section class="cards">
-      <div class="card">
+      <a href="resume.html" class="card">
         <div class="icon blue">📄</div>
-        <h3>Resume Builder</h3>
-        <p>Create a professional resume with our interactive builder</p>
-      </div>
+        <h3>Proof-Based Resume</h3>
+        <p>Skills backed by real projects and evidence</p>
+      </a>
 
-      <div class="card">
-        <div class="icon purple">🔍</div>
-        <h3>Resume Analyzer</h3>
-        <p>Get your resume scored and find skill gaps</p>
-      </div>
+      <a href="analyzer.html" class="card">
+        <div class="icon purple">🔗</div>
+        <h3>Skill → Outcome Mapper</h3>
+        <p>See how skills translate into results</p>
+      </a>
 
-      <div class="card">
-        <div class="icon green">🗺️</div>
-        <h3>Career Roadmap</h3>
-        <p>Follow a personalized learning path</p>
-      </div>
+      <a href="journal.html" class="card">
+        <div class="icon green">🧠</div>
+        <h3>Learning Journal</h3>
+        <p>Log daily learning and improvements</p>
+      </a>
 
-      <div class="card">
-        <div class="icon orange">💡</div>
-        <h3>Project Lab</h3>
-        <p>Discover resume-boosting projects</p>
-      </div>
+      <a href="projects.html" class="card">
+        <div class="icon orange">📊</div>
+        <h3>Project Difficulty Estimator</h3>
+        <p>Understand project complexity clearly</p>
+      </a>
 
-      <div class="card">
-        <div class="icon linkedin">in</div>
-        <h3>LinkedIn Boost</h3>
-        <p>Optimize your profile and visibility</p>
-      </div>
+      <a href="analyzer.html" class="card">
+        <div class="icon blue">📉</div>
+        <h3>Learning Drop-off Analyzer</h3>
+        <p>Detect gaps and recover momentum</p>
+      </a>
+
+      <a href="profile.html" class="card">
+        <div class="icon purple">🌐</div>
+        <h3>Public Recruiter Profile</h3>
+        <p>Share a read-only proof-backed profile</p>
+      </a>
     </section>
 
-    <!-- PATH FLOW -->
+    <!-- FLOW -->
     <section class="flow">
       <h2>Your Path to <span class="accent-purple">Job Readiness</span></h2>
       <div class="flow-steps">
-        <span>Resume</span>
-        <span>Skill Gaps</span>
-        <span>Roadmap</span>
-        <span>Practice</span>
+        <span>Skills</span>
         <span>Projects</span>
-        <span>LinkedIn</span>
+        <span>Evidence</span>
+        <span>Journal</span>
+        <span>Analytics</span>
+        <span>Growth</span>
         <span>Job Ready</span>
       </div>
     </section>
 
     <footer>
-      <span>CareerCraft</span>
-      <span>Your journey from resume to job-ready starts here</span>
+      <span>CareerForge</span>
+      <span>Your journey from learning to proof starts here</span>
     </footer>
 
     <script src="script.js"></script>
